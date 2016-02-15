@@ -14,7 +14,7 @@
 	float dx, dy; 
 }
 @property (nonatomic, strong) UIView *paddle;
-@property (nonatomic, strong) UIView *ball;
+@property (nonatomic, strong) UIImageView *ball;
 @property (nonatomic, strong) UIView *block;
 @property (nonatomic, strong) NSTimer *timer;
 
