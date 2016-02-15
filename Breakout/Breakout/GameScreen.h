@@ -9,11 +9,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GameScreen : UIView
+@interface GameScreen : UIImageView
 {
-	float dx, dy; 
+	float dx, dy;
+    
 }
-@property (nonatomic, strong) UIView *paddle;
+@property (nonatomic, strong) UIImageView *paddle;
 @property (nonatomic, strong) UIImageView *ball;
 @property (nonatomic, strong) UIView *block;
 @property (nonatomic, strong) NSTimer *timer;

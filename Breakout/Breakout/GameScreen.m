@@ -19,9 +19,16 @@
     // Drawing code
 }
 */
+
+
 NSMutableArray *blocks;
 int difficulty;
 -(void)createPlayField
+
+
+
+
+
 {difficulty = 0 ;
      blocks = [[NSMutableArray alloc] init];
 //first line
@@ -67,54 +74,35 @@ int difficulty;
         
         
     }
-	paddle = [[UIView alloc] initWithFrame:CGRectMake(20, 40, 60, 20)];
+    
+    for (int i =0 ;i<10 ;i++ ){
+        UIView *block1;
+        block1 = [[UIView alloc] initWithFrame:CGRectMake(10+i*70, 200, 60, 30)];
+        [self addSubview:block1];
+        [block1 setBackgroundColor:[UIColor grayColor]];
+        [blocks addObject:block1];
+        
+        
+    }
+
+	paddle = [[UIImageView alloc] initWithFrame:CGRectMake(20, 800, 160, 60)];
+    paddle.image = [UIImage imageNamed:@"paddle.png"];
 	[self addSubview:paddle];
 	[paddle setBackgroundColor:[UIColor blackColor]];
     
-//    block = [[UIView alloc] initWithFrame:CGRectMake(20, 40, 60, 30)];
-//    [self addSubview:block];
-//    [block setBackgroundColor:[UIColor greenColor]];
-// 
-//	
-//    block1 = [[UIView alloc] initWithFrame:CGRectMake(100, 40, 60, 30)];
-//    [self addSubview:block1];
-//    [block1 setBackgroundColor:[UIColor greenColor]];
-//    
-//    block2 = [[UIView alloc] initWithFrame:CGRectMake(100, 40, 60, 30)];
-//    [self addSubview:block2];
-//    [block2 setBackgroundColor:[UIColor greenColor]];
-//    
-//    block3 = [[UIView alloc] initWithFrame:CGRectMake(180, 40, 60, 30)];
-//    [self addSubview:block3];
-//    [block3 setBackgroundColor:[UIColor greenColor]];
-//    
-//    block = [[UIView alloc] initWithFrame:CGRectMake(260, 40, 60, 30)];
-//    [self addSubview:block];
-//    [block setBackgroundColor:[UIColor greenColor]];
+
     
     
-	ball = [[UIImageView alloc] initWithFrame:CGRectMake(400, 400, 20, 20)];
-    ball.image = [UIImage imageNamed:@"ball.png"];
+	ball = [[UIImageView alloc] initWithFrame:CGRectMake(400, 400, 40, 40)];
+    ball.image = [UIImage imageNamed:@"redball.png"];
 	[self addSubview:ball];
 	//[ball setBackgroundColor:[UIColor redColor]];
 	
+ 
     
     
-//    
-//        CGFloat w = self.paddle.bounds.size.width  / sqrtf( 2.0f );
-//        CGFloat h = self.paddle.bounds.size.height / sqrtf( 2.0f );
-//        NSLog( @"%@ w=%f", NSStringFromCGRect( self.paddle.bounds ), w );
-//    
-//        [UIView animateWithDuration:.5 animations:^{
-//            self.paddle.transform = CGAffineTransformMakeRotation(M_PI/2);
-//            self.paddle.bounds = CGRectMake( 0, 0, w, h );
-//        }];
-//    
-//        NSLog( @"%@", NSStringFromCGRect( self.paddle.frame ) );
-    
-    
-	dx = 10;
-	dy = 10;
+	dx = 25;
+	dy = 25;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -123,7 +111,7 @@ int difficulty;
 	{
 		CGPoint p = [t locationInView:self];
         
-      //  p.y = 200;
+        p.y = 800-difficulty*10;
 		[paddle setCenter:p];
 	}
 }
@@ -135,7 +123,7 @@ int difficulty;
 
 -(IBAction)startAnimation:(id)sender
 {
-	timer = [NSTimer scheduledTimerWithTimeInterval:.1	target:self selector:@selector(timerEvent:) userInfo:nil repeats:YES];
+	timer = [NSTimer scheduledTimerWithTimeInterval:.05	target:self selector:@selector(timerEvent:) userInfo:nil repeats:YES];
 
 }
 
@@ -160,9 +148,10 @@ int difficulty;
 	if ((p.x + dx) > bounds.size.width)
 		dx = -dx;
 	
-	if ((p.y + dy) > bounds.size.height)
+    if ((p.y + dy) > bounds.size.height){
 		dy = -dy;
-	
+    [timer invalidate];
+    }
 	p.x += dx;
 	p.y += dy;
 	[ball setCenter:p];
@@ -171,7 +160,7 @@ int difficulty;
 	// has placed the ball inside the paddle, we reverse that motion
 	// in the Y direction.
 	if (CGRectIntersectsRect([ball frame], [paddle frame]))
-	{
+    {   dx = dx+8; // to make sure it doesnt get stuck
 		dy = -dy;
 		p.y += 2*dy;
 		[ball setCenter:p];
@@ -187,9 +176,13 @@ int difficulty;
             [block1 setBackgroundColor:[UIColor grayColor]];
             block1.bounds = CGRectMake(0, 0, 0, 0);
             block1.frame = CGRectMake(0, 0, 0, 0);
+            dx = 25;
             dy = -dy;
             p.y += 2*dy;
             difficulty++;
+            
+            [paddle setFrame:CGRectMake([paddle frame].origin.x, [paddle frame].origin.y, 160-2*difficulty, 60)];
+            
             [ball setFrame:CGRectMake([ball frame].origin.x, [ball frame].origin.y, 20+difficulty, 20+difficulty)];
             [ball setCenter:p];
             

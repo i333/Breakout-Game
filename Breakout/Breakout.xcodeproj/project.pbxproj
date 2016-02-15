@@ -10,6 +10,8 @@
 		3C86A54E1C7175C6008BEEFD /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C86A54D1C7175C6008BEEFD /* ball.png */; };
 		3C86A5501C71821F008BEEFD /* paddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C86A54F1C71821F008BEEFD /* paddle.png */; };
 		3C86A5521C71841B008BEEFD /* block.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C86A5511C71841B008BEEFD /* block.png */; };
+		3C86A5541C718C54008BEEFD /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C86A5531C718C54008BEEFD /* background.jpg */; };
+		3C86A5561C718F4A008BEEFD /* redball.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C86A5551C718F4A008BEEFD /* redball.png */; };
 		3C86B8FF1C6FFBBA00EBF054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C86B8FE1C6FFBBA00EBF054 /* main.m */; };
 		3C86B9021C6FFBBA00EBF054 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C86B9011C6FFBBA00EBF054 /* AppDelegate.m */; };
 		3C86B9051C6FFBBA00EBF054 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C86B9041C6FFBBA00EBF054 /* ViewController.m */; };
@@ -42,6 +44,8 @@
 		3C86A54D1C7175C6008BEEFD /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		3C86A54F1C71821F008BEEFD /* paddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paddle.png; sourceTree = "<group>"; };
 		3C86A5511C71841B008BEEFD /* block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = block.png; sourceTree = "<group>"; };
+		3C86A5531C718C54008BEEFD /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		3C86A5551C718F4A008BEEFD /* redball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redball.png; sourceTree = "<group>"; };
 		3C86B8FA1C6FFBBA00EBF054 /* Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breakout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C86B8FE1C6FFBBA00EBF054 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3C86B9001C6FFBBA00EBF054 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -119,7 +123,9 @@
 				3C86B9311C6FFDF400EBF054 /* GameScreen.m */,
 				3C86B9091C6FFBBA00EBF054 /* Assets.xcassets */,
 				3C86A54F1C71821F008BEEFD /* paddle.png */,
+				3C86A5531C718C54008BEEFD /* background.jpg */,
 				3C86A5511C71841B008BEEFD /* block.png */,
+				3C86A5551C718F4A008BEEFD /* redball.png */,
 				3C86A54D1C7175C6008BEEFD /* ball.png */,
 				3C86B90B1C6FFBBA00EBF054 /* LaunchScreen.storyboard */,
 				3C86B90E1C6FFBBA00EBF054 /* Info.plist */,
@@ -259,7 +265,9 @@
 			files = (
 				3C86B90D1C6FFBBA00EBF054 /* LaunchScreen.storyboard in Resources */,
 				3C86A5501C71821F008BEEFD /* paddle.png in Resources */,
+				3C86A5541C718C54008BEEFD /* background.jpg in Resources */,
 				3C86B90A1C6FFBBA00EBF054 /* Assets.xcassets in Resources */,
+				3C86A5561C718F4A008BEEFD /* redball.png in Resources */,
 				3C86A54E1C7175C6008BEEFD /* ball.png in Resources */,
 				3C86B9081C6FFBBA00EBF054 /* Main.storyboard in Resources */,
 				3C86A5521C71841B008BEEFD /* block.png in Resources */,

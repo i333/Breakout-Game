@@ -10,6 +10,7 @@
 #import "GameScreen.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *ScoreOutlet;
 
 @end
 
@@ -20,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+ [gameScreen setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
  [gameScreen createPlayField];
 }
 
