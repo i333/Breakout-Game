@@ -35,10 +35,10 @@ int difficulty;
     
     for (int i =0 ;i<10 ;i++ ){
     UIImageView *block1;
-        block1 = [[UIImageView alloc] initWithFrame:CGRectMake(10+i*70, 40, 60, 30)];
+        block1 = [[UIImageView alloc] initWithFrame:CGRectMake(40+i*70, 40, 60, 30)];
           block1.image = [UIImage imageNamed:@"block.png"];
         [self addSubview:block1];
-      //  [block1 setBackgroundColor:[UIColor greenColor]];
+        [block1 setBackgroundColor:[UIColor blackColor]];
         [blocks addObject:block1];
     
     
@@ -47,7 +47,7 @@ int difficulty;
     
     for (int i =0 ;i<10 ;i++ ){
         UIView *block1;
-         block1 = [[UIView alloc] initWithFrame:CGRectMake(10+i*70, 80, 60, 30)];
+         block1 = [[UIView alloc] initWithFrame:CGRectMake(40+i*70, 80, 60, 30)];
         [self addSubview:block1];
         [block1 setBackgroundColor:[UIColor redColor]];
         [blocks addObject:block1];
@@ -57,7 +57,7 @@ int difficulty;
     
     for (int i =0 ;i<10 ;i++ ){
         UIView *block1;
-             block1 = [[UIView alloc] initWithFrame:CGRectMake(10+i*70, 120, 60, 30)];
+             block1 = [[UIView alloc] initWithFrame:CGRectMake(40+i*70, 120, 60, 30)];
         [self addSubview:block1];
         [block1 setBackgroundColor:[UIColor blueColor]];
         [blocks addObject:block1];
@@ -67,7 +67,7 @@ int difficulty;
     
     for (int i =0 ;i<10 ;i++ ){
         UIView *block1;
-             block1 = [[UIView alloc] initWithFrame:CGRectMake(10+i*70, 160, 60, 30)];
+             block1 = [[UIView alloc] initWithFrame:CGRectMake(40+i*70, 160, 60, 30)];
         [self addSubview:block1];
         [block1 setBackgroundColor:[UIColor purpleColor]];
         [blocks addObject:block1];
@@ -77,24 +77,39 @@ int difficulty;
     
     for (int i =0 ;i<10 ;i++ ){
         UIView *block1;
-        block1 = [[UIView alloc] initWithFrame:CGRectMake(10+i*70, 200, 60, 30)];
+        block1 = [[UIView alloc] initWithFrame:CGRectMake(40+i*70, 200, 60, 30)];
         [self addSubview:block1];
         [block1 setBackgroundColor:[UIColor grayColor]];
         [blocks addObject:block1];
         
         
     }
+    
+    
+    for (int i =0 ;i<10 ;i++ ){
+        UIImageView *block1;
+        block1 = [[UIImageView alloc] initWithFrame:CGRectMake(40+i*70, 240, 60, 30)];
+        block1.image = [UIImage imageNamed:@"block.png"];
+        [self addSubview:block1];
+          [block1 setBackgroundColor:[UIColor blackColor]];
+        [blocks addObject:block1];
+        
+        
+    }
 
-	paddle = [[UIImageView alloc] initWithFrame:CGRectMake(20, 800, 160, 60)];
-    paddle.image = [UIImage imageNamed:@"paddle.png"];
+    
+
+	paddle = [[UIImageView alloc] initWithFrame:CGRectMake(520, 800, 160, 80)];
+    paddle.image = [UIImage imageNamed:@"paddle-red.png"];
 	[self addSubview:paddle];
 	[paddle setBackgroundColor:[UIColor blackColor]];
     
+  
 
     
     
 	ball = [[UIImageView alloc] initWithFrame:CGRectMake(400, 400, 40, 40)];
-    ball.image = [UIImage imageNamed:@"redball.png"];
+    ball.image = [UIImage imageNamed:@"ball-blue.png"];
 	[self addSubview:ball];
 	//[ball setBackgroundColor:[UIColor redColor]];
 	
@@ -130,6 +145,7 @@ int difficulty;
 -(IBAction)stopAnimation:(id)sender
 {
 	[timer invalidate];
+    
 }
 
 -(void)timerEvent:(id)sender
@@ -164,6 +180,20 @@ int difficulty;
 		dy = -dy;
 		p.y += 2*dy;
 		[ball setCenter:p];
+        
+        UIImage * toImage = [UIImage imageNamed:@"paddle-red.png"];
+        [UIView transitionWithView:paddle
+                          duration:0.2f
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            paddle.image = toImage;
+                        } completion:nil];
+        
+
+        
+        
+        
+        
 	}
 	
     
@@ -171,8 +201,38 @@ int difficulty;
         
         if (CGRectIntersectsRect([ball frame], [block1 frame]))
         {
+            if(block1.backgroundColor == [UIColor blackColor]){
             
             
+                
+                UIImage * toImage = [UIImage imageNamed:@"paddle-1.png"];
+                [UIView transitionWithView:paddle
+                                  duration:0.2f
+                                   options:UIViewAnimationOptionTransitionCrossDissolve
+                                animations:^{
+                                    paddle.image = toImage;
+                                } completion:nil];
+
+            
+            
+            
+            }
+            else{
+            
+            
+                
+                            UIImage * toImage = [UIImage imageNamed:@"paddle-blue.png"];
+                            [UIView transitionWithView:paddle
+                                              duration:0.2f
+                                               options:UIViewAnimationOptionTransitionCrossDissolve
+                                            animations:^{
+                                                paddle.image = toImage;
+                                            } completion:nil];
+                            
+
+            
+            
+            }
             [block1 setBackgroundColor:[UIColor grayColor]];
             block1.bounds = CGRectMake(0, 0, 0, 0);
             block1.frame = CGRectMake(0, 0, 0, 0);
@@ -186,21 +246,11 @@ int difficulty;
             [ball setFrame:CGRectMake([ball frame].origin.x, [ball frame].origin.y, 20+difficulty, 20+difficulty)];
             [ball setCenter:p];
             
-            
+//
         }
 
         
     }
-    
-//    if (CGRectIntersectsRect([ball frame], [block frame]))
-//    {
-//        block.bounds = CGRectMake(0, 0, 0, 0);
-//        dy = -dy;
-//        p.y += 2*dy;
-//        [ball setCenter:p];
-//    }
-
-    
     
     
 

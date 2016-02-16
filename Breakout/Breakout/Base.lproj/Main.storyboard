@@ -19,57 +19,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBD-Re-Rm7" customClass="GameScreen">
-                                <rect key="frame" x="29" y="20" width="542" height="502"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SCORE:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMt-Ja-7VV">
-                                        <rect key="frame" x="8" y="470" width="75" height="32"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.28453357309999999" green="0.92549019610000005" blue="0.90118393409999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWE-fH-cCC">
-                                        <rect key="frame" x="91" y="470" width="102" height="32"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.092033643880000002" blue="0.089498557000000006" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oux-eL-9b0">
+                                        <rect key="frame" x="258" y="549" width="85" height="43"/>
+                                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="43" id="AvR-P3-cv0"/>
+                                            <constraint firstAttribute="width" constant="85" id="Q20-h8-Sp2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <state key="normal" title="Start">
+                                            <color key="titleColor" red="0.28453357309999999" green="0.92549019610000005" blue="0.90118393409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startAnimation:" destination="sBD-Re-Rm7" eventType="touchUpInside" id="HUc-tY-XOI"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.74808221471847691" green="0.95686274510000002" blue="0.70478785882281381" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Oux-eL-9b0" firstAttribute="centerX" secondItem="sBD-Re-Rm7" secondAttribute="centerX" id="PSH-Do-UKo"/>
+                                    <constraint firstAttribute="bottom" secondItem="Oux-eL-9b0" secondAttribute="bottom" constant="8" id="VE9-7v-EGX"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flZ-dW-kXg">
-                                <rect key="frame" x="426" y="537" width="86" height="43"/>
-                                <color key="backgroundColor" red="1" green="0.61145508506251067" blue="0.6243141529756091" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Stop"/>
-                                <connections>
-                                    <action selector="stopAnimation:" destination="sBD-Re-Rm7" eventType="touchUpInside" id="0P5-00-H11"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oux-eL-9b0">
-                                <rect key="frame" x="244" y="530" width="85" height="43"/>
-                                <color key="backgroundColor" red="1" green="0.65871159449002992" blue="0.6991228942374299" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <action selector="startAnimation:" destination="sBD-Re-Rm7" eventType="touchUpInside" id="HUc-tY-XOI"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="flZ-dW-kXg" firstAttribute="leading" secondItem="Oux-eL-9b0" secondAttribute="trailing" constant="119" id="7BO-ko-yST"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sBD-Re-Rm7" secondAttribute="bottom" constant="78" id="83t-2L-Uaq"/>
-                            <constraint firstItem="Oux-eL-9b0" firstAttribute="baseline" secondItem="flZ-dW-kXg" secondAttribute="baseline" id="HvQ-ay-agU"/>
-                            <constraint firstItem="Oux-eL-9b0" firstAttribute="width" secondItem="flZ-dW-kXg" secondAttribute="width" constant="-1" id="L9U-6B-CXN"/>
-                            <constraint firstItem="sBD-Re-Rm7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QM7-Av-E2F"/>
-                            <constraint firstItem="sBD-Re-Rm7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="9" id="TBa-kl-hjs"/>
-                            <constraint firstItem="Oux-eL-9b0" firstAttribute="top" secondItem="sBD-Re-Rm7" secondAttribute="bottom" constant="15" id="a0f-ur-5Gg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sBD-Re-Rm7" secondAttribute="trailing" constant="9" id="mgH-J5-7Xf"/>
-                            <constraint firstItem="Oux-eL-9b0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="151" id="rbs-1U-1iM"/>
-                            <constraint firstItem="flZ-dW-kXg" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" constant="-20" id="sYv-Re-RHo"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sBD-Re-Rm7" secondAttribute="bottom" id="83t-2L-Uaq"/>
+                            <constraint firstItem="sBD-Re-Rm7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="QM7-Av-E2F"/>
+                            <constraint firstItem="sBD-Re-Rm7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="TBa-kl-hjs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sBD-Re-Rm7" secondAttribute="trailing" constant="-20" id="mgH-J5-7Xf"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ScoreOutlet" destination="AWE-fH-cCC" id="hbf-iT-u6T"/>
                         <outlet property="gameScreen" destination="sBD-Re-Rm7" id="Ih5-jh-1KC"/>
                     </connections>
                 </viewController>
